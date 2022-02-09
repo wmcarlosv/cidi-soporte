@@ -1,0 +1,87 @@
+// Fonts-Links//
+@import 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800';
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
+@import 'https://fonts.googleapis.com/css?family=Exo:400,500,600,700,800';
+
+///End Links///
+
+
+//Font-weight//
+$semi-bold: 600;
+$bold: 800;
+$bolder: bolder;
+$lighter: 300;
+$medium: 500;
+
+//End-weight//
+
+
+//Fonts//
+$stagsans-light: 'STAGSANS-LIGHT', sans-serif;
+$raleway: 'Raleway', sans-serif;
+$opensans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$stagesans: 'STAGSANS', sans-serif;
+$exo: 'Exo', sans-serif;
+
+//End-Fonts//
+
+//Colorsssssssss//////
+$white: #fff;
+$color-f8f8f8: #f8f8f8;
+$change-color-p: #fb714f;
+$primary-pink: #ef0f72;
+$primary-orange: #f94a28;
+$black: #000;
+$light-black: #f8f8f8;
+$dull-black: #adb0b5;
+$count-color: #707070;
+$footer-color: #880e4f;
+$fb-color: #3b5998;
+$twitter-color: #55acee;
+$google-color: #dd4b39;
+$registered: #740c43;
+$color-ababab: #ababab;
+$color-4c9b38: #4c9b38;
+
+//Login-Variables//
+$login-background-color: #f8f8f8;
+$light-blue: #2c3e50;
+$primary-circle-pink: #ef0f72;
+$primary-circle-orange: #f94a28;
+$blue-border: #dce3e7;
+$login-a-color: #9a9a9a;
+$border-color: #ef0f72;
+$icon-color: #dadcde;
+$dual-background: #ef0f72, #f94a28;
+$color-323a45: #323a45;
+$color-e5672d: #e5672d;
+$color-ef0d74: #ef0d74;
+$color-14aee7: #14aee7;
+$color-07c2a5: #07c2a5;
+$color-460275: #460275;
+$color-ed3838: #ed3838;
+$color-333333: #333;
+$color-14aee7: #14aee7;
+$color-4c9b38: #4c9b38;
+$color-57a144: #57a144;
+$color-f84330: #f84330;
+$color-e8e8e8: #e8e8e8;
+$color-f53048: #f53048;
+$color-666666: #666;
+$color-27a1d6: #27a1d6;
+$color-user: #ba682e;
+
+
+///End Colors///
+
+//mixin-area//
+
+@mixin small-border($border-color) {
+
+    border: solid 2px $border-color;
+    width: 30px;
+
+}
+
