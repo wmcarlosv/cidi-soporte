@@ -75,6 +75,8 @@
                             <!--ticket-detail-box-->
                             <hr>
                             <!--text editor-->
+
+                            @if($ticket->status != 'closed')
                             <div class="tc-editor">
                                 <h3>Reply this ticket</h3>
                                 {{Form::open(['id' => 'replies', 'files'=> true])}}
@@ -94,6 +96,11 @@
                                     <strong>Alert!</strong> Reply body can not be empty!
                                 </div>
                             </div>
+                            @else
+                                <h3 class="text-center">The ticket was closed</h3>
+                            @endif
+
+
                         </div>
 
                         <div class="col-md-3 col-sm-12">
@@ -127,7 +134,7 @@
                                             <td class="tno">{{$ticket->users->name}}</td>
                                         @endif
                                     </tr>
-                                    @if(Auth::user()->hasRole('staff') || Auth::user()->hasRole('admin'))
+                                    @if(Auth::user()->hasRole('admin'))
                                     <tr>
                                         <td class="no-border">
                                             <span class="new-tk ticker">

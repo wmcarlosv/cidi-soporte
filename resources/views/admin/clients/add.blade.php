@@ -23,6 +23,16 @@
                             <hr>
 
                             <div class="form-group">
+                                <label class="control-label">Department:</label>
+                                <select name="department_id" class="form-control">
+                                    @foreach($departments as $department)
+                                        <option value="{{$department->id}}">{{$department->name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Name*:</label>
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" required/>
                             </div>

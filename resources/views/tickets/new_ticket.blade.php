@@ -34,15 +34,19 @@
                                 @endforeach
                             @endif
 
-                            <div class="form-group">
-                                <label class="control-label">Department:</label>
-                                <select name="department_id" class="form-control">
-                                    @foreach($departments as $department)
-                                        <option value="{{$department->id}}">{{$department->name}}</option>
-                                    @endforeach
+                            @if(Auth::user()->roles[0]->display_name == 'Client')
+                                <input type="hidden" name="department_id" value="{{ Auth::user()->department_id }}">
+                            @else
+                                <div class="form-group">
+                                    <label class="control-label">Department:</label>
+                                    <select name="department_id" class="form-control">
+                                        @foreach($departments as $department)
+                                            <option @if(Auth::user()->department_id == $department->id) selected='selected' @endif value="{{$department->id}}">{{$department->name}}</option>
+                                        @endforeach
 
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
+                            @endif
 
                             <div class="form-group">
                                 <label class="control-label">Attach File:</label>

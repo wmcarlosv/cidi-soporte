@@ -30,6 +30,16 @@
                             <hr>
 
                             <div class="form-group">
+                                <label class="control-label">Department:</label>
+                                <select name="department_id" class="form-control">
+                                    @foreach($departments as $department)
+                                        <option @if($user->department_id == $department->id) selected='selected' @endif value="{{$department->id}}">{{$department->name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label">Name*:</label>
                                 <input type="text" class="form-control" name="name" value="{{$user->name}}" required/>
                             </div>

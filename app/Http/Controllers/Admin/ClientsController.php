@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Departments;
 
 class ClientsController extends Controller
 {
@@ -33,7 +34,8 @@ class ClientsController extends Controller
      * Create new resource.
      */
     public function create(){
-        return view('admin.clients.add');
+        $departments = Departments::all();
+        return view('admin.clients.add', compact('departments'));
     }
 
     /**
@@ -45,12 +47,14 @@ class ClientsController extends Controller
             'username' => 'required|alpha_dash|max:100|unique:users',
             'email' => 'required|email|max:100|unique:users',
             'password' => 'required|min:6',
+            'department_id'=>'required'
         ]);
         $user  = new User();
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->department_id = $request->department_id;
 
         if(!empty($request->file)){
             $request->file->move('uploads', $request->file->getClientOriginalName());
@@ -70,7 +74,8 @@ class ClientsController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.clients.edit', compact('user'));
+        $departments = Departments::all();
+        return view('admin.clients.edit', compact('user','departments'));
     }
 
     /**
@@ -83,11 +88,13 @@ class ClientsController extends Controller
             'name' => 'required',
             'username' => 'required',
             'email' => 'required',
+            'department_id'=>'required'
         ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->department_id = $request->department_id;
         if(!empty($request->file)){
             $request->file->move('uploads', $request->file->getClientOriginalName());
             $user->avatar = $request->file->getClientOriginalName();
