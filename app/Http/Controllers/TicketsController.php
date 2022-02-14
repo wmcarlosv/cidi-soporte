@@ -92,11 +92,11 @@ class TicketsController extends Controller
         $settings = Settings::all()->first();
         if($settings->ticket_email == 'yes'){
             $department = Departments::find($request->department_id);
-            Mail::send('mails.thanks',['ticket'=>$request, 'department' => $department], function ($message) use ($settings){
+            /*Mail::send('mails.thanks',['ticket'=>$request, 'department' => $department], function ($message) use ($settings){
                 $message->from('no-reply@gmail.com', 'Ticket Plus');
                 $message->subject('New Ticket Created');
                 $message->to($settings->admin_email);
-            });
+            });*/
         }
         return redirect::to('tickets');
     }
